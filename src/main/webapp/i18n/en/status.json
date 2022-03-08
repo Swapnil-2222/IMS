@@ -1,0 +1,12 @@
+{
+  "imsApp": {
+    "Status": {
+      "null": "",
+      "REQUESTED": "Requested",
+      "APPROVED": "Approved",
+      "CANCELED": "Canceled",
+      "RECEIVED": "Received",
+      "COMPLETED": "Completed"
+    }
+  }
+}
