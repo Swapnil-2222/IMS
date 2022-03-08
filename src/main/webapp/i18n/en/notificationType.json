@@ -1,0 +1,11 @@
+{
+  "imsApp": {
+    "NotificationType": {
+      "null": "",
+      "APPROVAL": "Apporoval",
+      "REQUEST": "Product",
+      "ALERT": "Alert",
+      "TRANSFER": "Transfer"
+    }
+  }
+}

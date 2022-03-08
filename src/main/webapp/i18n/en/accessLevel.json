@@ -1,0 +1,10 @@
+{
+  "imsApp": {
+    "AccessLevel": {
+      "null": "",
+      "ROOT": "Root",
+      "LAB": "Lab",
+      "SECTION": "Section"
+    }
+  }
+}
