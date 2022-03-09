@@ -57,7 +57,7 @@ public class SecurityUserDTO implements Serializable {
 
     private Set<SecurityRoleDTO> securityRoles = new HashSet<>();
 
-    private Set<WareHouseDTO> securityUsers = new HashSet<>();
+    private Set<WareHouseDTO> wareHouses = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -227,12 +227,12 @@ public class SecurityUserDTO implements Serializable {
         this.securityRoles = securityRoles;
     }
 
-    public Set<WareHouseDTO> getSecurityUsers() {
-        return securityUsers;
+    public Set<WareHouseDTO> getWareHouses() {
+        return wareHouses;
     }
 
-    public void setSecurityUsers(Set<WareHouseDTO> securityUsers) {
-        this.securityUsers = securityUsers;
+    public void setWareHouses(Set<WareHouseDTO> wareHouses) {
+        this.wareHouses = wareHouses;
     }
 
     @Override
@@ -281,7 +281,7 @@ public class SecurityUserDTO implements Serializable {
             ", lastModifiedBy='" + getLastModifiedBy() + "'" +
             ", securityPermissions=" + getSecurityPermissions() +
             ", securityRoles=" + getSecurityRoles() +
-            ", securityUsers=" + getSecurityUsers() +
+            ", wareHouses=" + getWareHouses() +
             "}";
     }
 }

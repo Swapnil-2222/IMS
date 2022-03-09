@@ -87,7 +87,7 @@ public class PurchaseOrder implements Serializable {
     private Set<GoodsRecived> goodReciveds = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "securityUsers", "productInventories" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "wareHouses", "productInventories" }, allowSetters = true)
     private SecurityUser securityUser;
 
     @OneToMany(mappedBy = "purchaseOrder")

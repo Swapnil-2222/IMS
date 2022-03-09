@@ -100,12 +100,12 @@ describe('SecurityUser Management Update Component', () => {
 
     it('Should call WareHouse query and add missing value', () => {
       const securityUser: ISecurityUser = { id: 456 };
-      const securityUsers: IWareHouse[] = [{ id: 56439 }];
-      securityUser.securityUsers = securityUsers;
+      const wareHouses: IWareHouse[] = [{ id: 56439 }];
+      securityUser.wareHouses = wareHouses;
 
       const wareHouseCollection: IWareHouse[] = [{ id: 78835 }];
       jest.spyOn(wareHouseService, 'query').mockReturnValue(of(new HttpResponse({ body: wareHouseCollection })));
-      const additionalWareHouses = [...securityUsers];
+      const additionalWareHouses = [...wareHouses];
       const expectedCollection: IWareHouse[] = [...additionalWareHouses, ...wareHouseCollection];
       jest.spyOn(wareHouseService, 'addWareHouseToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -123,8 +123,8 @@ describe('SecurityUser Management Update Component', () => {
       securityUser.securityPermissions = [securityPermissions];
       const securityRoles: ISecurityRole = { id: 91779 };
       securityUser.securityRoles = [securityRoles];
-      const securityUsers: IWareHouse = { id: 58136 };
-      securityUser.securityUsers = [securityUsers];
+      const wareHouses: IWareHouse = { id: 58136 };
+      securityUser.wareHouses = [wareHouses];
 
       activatedRoute.data = of({ securityUser });
       comp.ngOnInit();
@@ -132,7 +132,7 @@ describe('SecurityUser Management Update Component', () => {
       expect(comp.editForm.value).toEqual(expect.objectContaining(securityUser));
       expect(comp.securityPermissionsSharedCollection).toContain(securityPermissions);
       expect(comp.securityRolesSharedCollection).toContain(securityRoles);
-      expect(comp.wareHousesSharedCollection).toContain(securityUsers);
+      expect(comp.wareHousesSharedCollection).toContain(wareHouses);
     });
   });
 

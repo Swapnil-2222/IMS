@@ -13,7 +13,7 @@ export interface IProductTransaction {
   description?: string | null;
   lastModified?: dayjs.Dayjs | null;
   lastModifiedBy?: string | null;
-  ecurityUser?: ISecurityUser | null;
+  securityUser?: ISecurityUser | null;
   wareHouse?: IWareHouse | null;
 }
 
@@ -29,7 +29,7 @@ export class ProductTransaction implements IProductTransaction {
     public description?: string | null,
     public lastModified?: dayjs.Dayjs | null,
     public lastModifiedBy?: string | null,
-    public ecurityUser?: ISecurityUser | null,
+    public securityUser?: ISecurityUser | null,
     public wareHouse?: IWareHouse | null
   ) {}
 }

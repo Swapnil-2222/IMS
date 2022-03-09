@@ -121,12 +121,12 @@ public class ProductTransactionQueryService extends QueryService<ProductTransact
                 specification =
                     specification.and(buildStringSpecification(criteria.getLastModifiedBy(), ProductTransaction_.lastModifiedBy));
             }
-            if (criteria.getEcurityUserId() != null) {
+            if (criteria.getSecurityUserId() != null) {
                 specification =
                     specification.and(
                         buildSpecification(
-                            criteria.getEcurityUserId(),
-                            root -> root.join(ProductTransaction_.ecurityUser, JoinType.LEFT).get(SecurityUser_.id)
+                            criteria.getSecurityUserId(),
+                            root -> root.join(ProductTransaction_.securityUser, JoinType.LEFT).get(SecurityUser_.id)
                         )
                     );
             }

@@ -111,8 +111,8 @@ public class Product implements Serializable {
     private Unit unit;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "securityUsers", "productInventories" }, allowSetters = true)
-    private SecurityUser ecurityUser;
+    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "wareHouses", "productInventories" }, allowSetters = true)
+    private SecurityUser securityUser;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "products", "purchaseOrder" }, allowSetters = true)
@@ -502,16 +502,16 @@ public class Product implements Serializable {
         return this;
     }
 
-    public SecurityUser getEcurityUser() {
-        return this.ecurityUser;
+    public SecurityUser getSecurityUser() {
+        return this.securityUser;
     }
 
-    public void setEcurityUser(SecurityUser securityUser) {
-        this.ecurityUser = securityUser;
+    public void setSecurityUser(SecurityUser securityUser) {
+        this.securityUser = securityUser;
     }
 
-    public Product ecurityUser(SecurityUser securityUser) {
-        this.setEcurityUser(securityUser);
+    public Product securityUser(SecurityUser securityUser) {
+        this.setSecurityUser(securityUser);
         return this;
     }
 

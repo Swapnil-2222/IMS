@@ -102,8 +102,8 @@
             <span jhiTranslate="imsApp.product.categories">Categories</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="unit.id"><span jhiTranslate="imsApp.product.unit">Unit</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="ecurityUser.login">
-            <span jhiTranslate="imsApp.product.ecurityUser">Ecurity User</span> <fa-icon icon="sort"></fa-icon>
+          <th scope="col" jhiSortBy="securityUser.login">
+            <span jhiTranslate="imsApp.product.securityUser">Security User</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="purchaseOrderDetails.id">
             <span jhiTranslate="imsApp.product.purchaseOrderDetails">Purchase Order Details</span> <fa-icon icon="sort"></fa-icon>
@@ -158,8 +158,8 @@
             </div>
           </td>
           <td>
-            <div *ngIf="product.ecurityUser">
-              <a [routerLink]="['/security-user', product.ecurityUser?.id, 'view']">{{ product.ecurityUser?.login }}</a>
+            <div *ngIf="product.securityUser">
+              <a [routerLink]="['/security-user', product.securityUser?.id, 'view']">{{ product.securityUser?.login }}</a>
             </div>
           </td>
           <td>

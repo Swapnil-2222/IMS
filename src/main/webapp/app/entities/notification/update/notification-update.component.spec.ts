@@ -52,12 +52,12 @@ describe('Notification Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call SecurityUser query and add missing value', () => {
       const notification: INotification = { id: 456 };
-      const ecurityUser: ISecurityUser = { id: 64470 };
-      notification.ecurityUser = ecurityUser;
+      const securityUser: ISecurityUser = { id: 64470 };
+      notification.securityUser = securityUser;
 
       const securityUserCollection: ISecurityUser[] = [{ id: 20207 }];
       jest.spyOn(securityUserService, 'query').mockReturnValue(of(new HttpResponse({ body: securityUserCollection })));
-      const additionalSecurityUsers = [ecurityUser];
+      const additionalSecurityUsers = [securityUser];
       const expectedCollection: ISecurityUser[] = [...additionalSecurityUsers, ...securityUserCollection];
       jest.spyOn(securityUserService, 'addSecurityUserToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -93,8 +93,8 @@ describe('Notification Management Update Component', () => {
 
     it('Should update editForm', () => {
       const notification: INotification = { id: 456 };
-      const ecurityUser: ISecurityUser = { id: 44851 };
-      notification.ecurityUser = ecurityUser;
+      const securityUser: ISecurityUser = { id: 44851 };
+      notification.securityUser = securityUser;
       const wareHouse: IWareHouse = { id: 19010 };
       notification.wareHouse = wareHouse;
 
@@ -102,7 +102,7 @@ describe('Notification Management Update Component', () => {
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(notification));
-      expect(comp.securityUsersSharedCollection).toContain(ecurityUser);
+      expect(comp.securityUsersSharedCollection).toContain(securityUser);
       expect(comp.wareHousesSharedCollection).toContain(wareHouse);
     });
   });

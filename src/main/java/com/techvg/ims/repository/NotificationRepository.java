@@ -27,18 +27,18 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
     }
 
     @Query(
-        value = "select distinct notification from Notification notification left join fetch notification.ecurityUser left join fetch notification.wareHouse",
+        value = "select distinct notification from Notification notification left join fetch notification.securityUser left join fetch notification.wareHouse",
         countQuery = "select count(distinct notification) from Notification notification"
     )
     Page<Notification> findAllWithToOneRelationships(Pageable pageable);
 
     @Query(
-        "select distinct notification from Notification notification left join fetch notification.ecurityUser left join fetch notification.wareHouse"
+        "select distinct notification from Notification notification left join fetch notification.securityUser left join fetch notification.wareHouse"
     )
     List<Notification> findAllWithToOneRelationships();
 
     @Query(
-        "select notification from Notification notification left join fetch notification.ecurityUser left join fetch notification.wareHouse where notification.id =:id"
+        "select notification from Notification notification left join fetch notification.securityUser left join fetch notification.wareHouse where notification.id =:id"
     )
     Optional<Notification> findOneWithToOneRelationships(@Param("id") Long id);
 }

@@ -29,7 +29,7 @@ public class ProductTransactionDTO implements Serializable {
 
     private String lastModifiedBy;
 
-    private SecurityUserDTO ecurityUser;
+    private SecurityUserDTO securityUser;
 
     private WareHouseDTO wareHouse;
 
@@ -113,12 +113,12 @@ public class ProductTransactionDTO implements Serializable {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public SecurityUserDTO getEcurityUser() {
-        return ecurityUser;
+    public SecurityUserDTO getSecurityUser() {
+        return securityUser;
     }
 
-    public void setEcurityUser(SecurityUserDTO ecurityUser) {
-        this.ecurityUser = ecurityUser;
+    public void setSecurityUser(SecurityUserDTO securityUser) {
+        this.securityUser = securityUser;
     }
 
     public WareHouseDTO getWareHouse() {
@@ -164,7 +164,7 @@ public class ProductTransactionDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", lastModified='" + getLastModified() + "'" +
             ", lastModifiedBy='" + getLastModifiedBy() + "'" +
-            ", ecurityUser=" + getEcurityUser() +
+            ", securityUser=" + getSecurityUser() +
             ", wareHouse=" + getWareHouse() +
             "}";
     }

@@ -26,7 +26,7 @@ export interface ISecurityUser {
   lastModifiedBy?: string | null;
   securityPermissions?: ISecurityPermission[] | null;
   securityRoles?: ISecurityRole[] | null;
-  securityUsers?: IWareHouse[] | null;
+  wareHouses?: IWareHouse[] | null;
   productInventories?: IProductInventory[] | null;
 }
 
@@ -53,7 +53,7 @@ export class SecurityUser implements ISecurityUser {
     public lastModifiedBy?: string | null,
     public securityPermissions?: ISecurityPermission[] | null,
     public securityRoles?: ISecurityRole[] | null,
-    public securityUsers?: IWareHouse[] | null,
+    public wareHouses?: IWareHouse[] | null,
     public productInventories?: IProductInventory[] | null
   ) {
     this.activated = this.activated ?? false;

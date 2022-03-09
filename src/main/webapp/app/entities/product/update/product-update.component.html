@@ -304,12 +304,12 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="imsApp.product.ecurityUser" for="field_ecurityUser">Ecurity User</label>
-          <select class="form-control" id="field_ecurityUser" data-cy="ecurityUser" name="ecurityUser" formControlName="ecurityUser">
+          <label class="form-label" jhiTranslate="imsApp.product.securityUser" for="field_securityUser">Security User</label>
+          <select class="form-control" id="field_securityUser" data-cy="securityUser" name="securityUser" formControlName="securityUser">
             <option [ngValue]="null"></option>
             <option
               [ngValue]="
-                securityUserOption.id === editForm.get('ecurityUser')!.value?.id ? editForm.get('ecurityUser')!.value : securityUserOption
+                securityUserOption.id === editForm.get('securityUser')!.value?.id ? editForm.get('securityUser')!.value : securityUserOption
               "
               *ngFor="let securityUserOption of securityUsersSharedCollection; trackBy: trackSecurityUserById"
             >

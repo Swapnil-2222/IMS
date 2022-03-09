@@ -100,10 +100,10 @@
             >{{ last ? '' : ', ' }}
           </span>
         </dd>
-        <dt><span jhiTranslate="imsApp.securityUser.securityUser">Security User</span></dt>
+        <dt><span jhiTranslate="imsApp.securityUser.wareHouse">Ware House</span></dt>
         <dd>
-          <span *ngFor="let securityUser of securityUser.securityUsers; let last = last">
-            <a [routerLink]="['/ware-house', securityUser?.id, 'view']">{{ securityUser.login }}</a
+          <span *ngFor="let wareHouse of securityUser.wareHouses; let last = last">
+            <a [routerLink]="['/ware-house', wareHouse?.id, 'view']">{{ wareHouse.whName }}</a
             >{{ last ? '' : ', ' }}
           </span>
         </dd>

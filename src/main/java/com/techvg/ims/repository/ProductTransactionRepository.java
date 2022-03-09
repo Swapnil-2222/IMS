@@ -28,18 +28,18 @@ public interface ProductTransactionRepository
     }
 
     @Query(
-        value = "select distinct productTransaction from ProductTransaction productTransaction left join fetch productTransaction.ecurityUser left join fetch productTransaction.wareHouse",
+        value = "select distinct productTransaction from ProductTransaction productTransaction left join fetch productTransaction.securityUser left join fetch productTransaction.wareHouse",
         countQuery = "select count(distinct productTransaction) from ProductTransaction productTransaction"
     )
     Page<ProductTransaction> findAllWithToOneRelationships(Pageable pageable);
 
     @Query(
-        "select distinct productTransaction from ProductTransaction productTransaction left join fetch productTransaction.ecurityUser left join fetch productTransaction.wareHouse"
+        "select distinct productTransaction from ProductTransaction productTransaction left join fetch productTransaction.securityUser left join fetch productTransaction.wareHouse"
     )
     List<ProductTransaction> findAllWithToOneRelationships();
 
     @Query(
-        "select productTransaction from ProductTransaction productTransaction left join fetch productTransaction.ecurityUser left join fetch productTransaction.wareHouse where productTransaction.id =:id"
+        "select productTransaction from ProductTransaction productTransaction left join fetch productTransaction.securityUser left join fetch productTransaction.wareHouse where productTransaction.id =:id"
     )
     Optional<ProductTransaction> findOneWithToOneRelationships(@Param("id") Long id);
 }

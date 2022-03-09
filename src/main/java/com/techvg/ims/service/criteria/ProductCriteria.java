@@ -97,7 +97,7 @@ public class ProductCriteria implements Serializable, Criteria {
 
     private LongFilter unitId;
 
-    private LongFilter ecurityUserId;
+    private LongFilter securityUserId;
 
     private LongFilter purchaseOrderDetailsId;
 
@@ -132,7 +132,7 @@ public class ProductCriteria implements Serializable, Criteria {
         this.transferDetailsId = other.transferDetailsId == null ? null : other.transferDetailsId.copy();
         this.categoriesId = other.categoriesId == null ? null : other.categoriesId.copy();
         this.unitId = other.unitId == null ? null : other.unitId.copy();
-        this.ecurityUserId = other.ecurityUserId == null ? null : other.ecurityUserId.copy();
+        this.securityUserId = other.securityUserId == null ? null : other.securityUserId.copy();
         this.purchaseOrderDetailsId = other.purchaseOrderDetailsId == null ? null : other.purchaseOrderDetailsId.copy();
         this.distinct = other.distinct;
     }
@@ -532,19 +532,19 @@ public class ProductCriteria implements Serializable, Criteria {
         this.unitId = unitId;
     }
 
-    public LongFilter getEcurityUserId() {
-        return ecurityUserId;
+    public LongFilter getSecurityUserId() {
+        return securityUserId;
     }
 
-    public LongFilter ecurityUserId() {
-        if (ecurityUserId == null) {
-            ecurityUserId = new LongFilter();
+    public LongFilter securityUserId() {
+        if (securityUserId == null) {
+            securityUserId = new LongFilter();
         }
-        return ecurityUserId;
+        return securityUserId;
     }
 
-    public void setEcurityUserId(LongFilter ecurityUserId) {
-        this.ecurityUserId = ecurityUserId;
+    public void setSecurityUserId(LongFilter securityUserId) {
+        this.securityUserId = securityUserId;
     }
 
     public LongFilter getPurchaseOrderDetailsId() {
@@ -606,7 +606,7 @@ public class ProductCriteria implements Serializable, Criteria {
             Objects.equals(transferDetailsId, that.transferDetailsId) &&
             Objects.equals(categoriesId, that.categoriesId) &&
             Objects.equals(unitId, that.unitId) &&
-            Objects.equals(ecurityUserId, that.ecurityUserId) &&
+            Objects.equals(securityUserId, that.securityUserId) &&
             Objects.equals(purchaseOrderDetailsId, that.purchaseOrderDetailsId) &&
             Objects.equals(distinct, that.distinct)
         );
@@ -641,7 +641,7 @@ public class ProductCriteria implements Serializable, Criteria {
             transferDetailsId,
             categoriesId,
             unitId,
-            ecurityUserId,
+            securityUserId,
             purchaseOrderDetailsId,
             distinct
         );
@@ -677,7 +677,7 @@ public class ProductCriteria implements Serializable, Criteria {
             (transferDetailsId != null ? "transferDetailsId=" + transferDetailsId + ", " : "") +
             (categoriesId != null ? "categoriesId=" + categoriesId + ", " : "") +
             (unitId != null ? "unitId=" + unitId + ", " : "") +
-            (ecurityUserId != null ? "ecurityUserId=" + ecurityUserId + ", " : "") +
+            (securityUserId != null ? "securityUserId=" + securityUserId + ", " : "") +
             (purchaseOrderDetailsId != null ? "purchaseOrderDetailsId=" + purchaseOrderDetailsId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";

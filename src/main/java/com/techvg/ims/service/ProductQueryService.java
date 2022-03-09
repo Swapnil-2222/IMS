@@ -180,12 +180,12 @@ public class ProductQueryService extends QueryService<Product> {
                         buildSpecification(criteria.getUnitId(), root -> root.join(Product_.unit, JoinType.LEFT).get(Unit_.id))
                     );
             }
-            if (criteria.getEcurityUserId() != null) {
+            if (criteria.getSecurityUserId() != null) {
                 specification =
                     specification.and(
                         buildSpecification(
-                            criteria.getEcurityUserId(),
-                            root -> root.join(Product_.ecurityUser, JoinType.LEFT).get(SecurityUser_.id)
+                            criteria.getSecurityUserId(),
+                            root -> root.join(Product_.securityUser, JoinType.LEFT).get(SecurityUser_.id)
                         )
                     );
             }

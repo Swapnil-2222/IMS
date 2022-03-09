@@ -9,7 +9,7 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = { SecurityUserMapper.class, WareHouseMapper.class })
 public interface NotificationMapper extends EntityMapper<NotificationDTO, Notification> {
-    @Mapping(target = "ecurityUser", source = "ecurityUser", qualifiedByName = "login")
+    @Mapping(target = "securityUser", source = "securityUser", qualifiedByName = "login")
     @Mapping(target = "wareHouse", source = "wareHouse", qualifiedByName = "whName")
     NotificationDTO toDto(Notification s);
 }

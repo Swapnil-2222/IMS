@@ -1004,28 +1004,28 @@ class ProductTransactionResourceIT {
 
     @Test
     @Transactional
-    void getAllProductTransactionsByEcurityUserIsEqualToSomething() throws Exception {
+    void getAllProductTransactionsBySecurityUserIsEqualToSomething() throws Exception {
         // Initialize the database
         productTransactionRepository.saveAndFlush(productTransaction);
-        SecurityUser ecurityUser;
+        SecurityUser securityUser;
         if (TestUtil.findAll(em, SecurityUser.class).isEmpty()) {
-            ecurityUser = SecurityUserResourceIT.createEntity(em);
-            em.persist(ecurityUser);
+            securityUser = SecurityUserResourceIT.createEntity(em);
+            em.persist(securityUser);
             em.flush();
         } else {
-            ecurityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
+            securityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
         }
-        em.persist(ecurityUser);
+        em.persist(securityUser);
         em.flush();
-        productTransaction.setEcurityUser(ecurityUser);
+        productTransaction.setSecurityUser(securityUser);
         productTransactionRepository.saveAndFlush(productTransaction);
-        Long ecurityUserId = ecurityUser.getId();
+        Long securityUserId = securityUser.getId();
 
-        // Get all the productTransactionList where ecurityUser equals to ecurityUserId
-        defaultProductTransactionShouldBeFound("ecurityUserId.equals=" + ecurityUserId);
+        // Get all the productTransactionList where securityUser equals to securityUserId
+        defaultProductTransactionShouldBeFound("securityUserId.equals=" + securityUserId);
 
-        // Get all the productTransactionList where ecurityUser equals to (ecurityUserId + 1)
-        defaultProductTransactionShouldNotBeFound("ecurityUserId.equals=" + (ecurityUserId + 1));
+        // Get all the productTransactionList where securityUser equals to (securityUserId + 1)
+        defaultProductTransactionShouldNotBeFound("securityUserId.equals=" + (securityUserId + 1));
     }
 
     @Test

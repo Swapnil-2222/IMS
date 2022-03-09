@@ -56,7 +56,7 @@ public class PurchaseOrderDetails implements Serializable {
 
     @OneToMany(mappedBy = "purchaseOrderDetails")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "transferDetails", "categories", "unit", "ecurityUser", "purchaseOrderDetails" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "transferDetails", "categories", "unit", "securityUser", "purchaseOrderDetails" }, allowSetters = true)
     private Set<Product> products = new HashSet<>();
 
     @ManyToOne

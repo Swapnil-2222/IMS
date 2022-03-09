@@ -21,7 +21,7 @@ export interface IWareHouse {
   lastModified?: dayjs.Dayjs;
   lastModifiedBy?: string;
   productInventories?: IProductInventory[] | null;
-  productInventories?: ISecurityUser[] | null;
+  securityUsers?: ISecurityUser[] | null;
 }
 
 export class WareHouse implements IWareHouse {
@@ -44,7 +44,7 @@ export class WareHouse implements IWareHouse {
     public lastModified?: dayjs.Dayjs,
     public lastModifiedBy?: string,
     public productInventories?: IProductInventory[] | null,
-    public productInventories?: ISecurityUser[] | null
+    public securityUsers?: ISecurityUser[] | null
   ) {
     this.isDeleted = this.isDeleted ?? false;
     this.isActive = this.isActive ?? false;

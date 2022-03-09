@@ -40,7 +40,7 @@
       "otherEntityField": "login",
       "otherEntityName": "securityUser",
       "otherEntityRelationshipName": "notification",
-      "relationshipName": "ecurityUser",
+      "relationshipName": "securityUser",
       "relationshipType": "many-to-one"
     },
     {

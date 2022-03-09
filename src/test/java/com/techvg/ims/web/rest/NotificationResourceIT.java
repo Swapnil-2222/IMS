@@ -583,28 +583,28 @@ class NotificationResourceIT {
 
     @Test
     @Transactional
-    void getAllNotificationsByEcurityUserIsEqualToSomething() throws Exception {
+    void getAllNotificationsBySecurityUserIsEqualToSomething() throws Exception {
         // Initialize the database
         notificationRepository.saveAndFlush(notification);
-        SecurityUser ecurityUser;
+        SecurityUser securityUser;
         if (TestUtil.findAll(em, SecurityUser.class).isEmpty()) {
-            ecurityUser = SecurityUserResourceIT.createEntity(em);
-            em.persist(ecurityUser);
+            securityUser = SecurityUserResourceIT.createEntity(em);
+            em.persist(securityUser);
             em.flush();
         } else {
-            ecurityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
+            securityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
         }
-        em.persist(ecurityUser);
+        em.persist(securityUser);
         em.flush();
-        notification.setEcurityUser(ecurityUser);
+        notification.setSecurityUser(securityUser);
         notificationRepository.saveAndFlush(notification);
-        Long ecurityUserId = ecurityUser.getId();
+        Long securityUserId = securityUser.getId();
 
-        // Get all the notificationList where ecurityUser equals to ecurityUserId
-        defaultNotificationShouldBeFound("ecurityUserId.equals=" + ecurityUserId);
+        // Get all the notificationList where securityUser equals to securityUserId
+        defaultNotificationShouldBeFound("securityUserId.equals=" + securityUserId);
 
-        // Get all the notificationList where ecurityUser equals to (ecurityUserId + 1)
-        defaultNotificationShouldNotBeFound("ecurityUserId.equals=" + (ecurityUserId + 1));
+        // Get all the notificationList where securityUser equals to (securityUserId + 1)
+        defaultNotificationShouldNotBeFound("securityUserId.equals=" + (securityUserId + 1));
     }
 
     @Test

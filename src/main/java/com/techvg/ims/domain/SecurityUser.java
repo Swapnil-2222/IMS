@@ -104,13 +104,13 @@ public class SecurityUser implements Serializable {
 
     @ManyToMany
     @JoinTable(
-        name = "rel_security_user__security_user",
+        name = "rel_security_user__ware_house",
         joinColumns = @JoinColumn(name = "security_user_id"),
-        inverseJoinColumns = @JoinColumn(name = "security_user_id")
+        inverseJoinColumns = @JoinColumn(name = "ware_house_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "productInventories", "productInventories" }, allowSetters = true)
-    private Set<WareHouse> securityUsers = new HashSet<>();
+    @JsonIgnoreProperties(value = { "productInventories", "securityUsers" }, allowSetters = true)
+    private Set<WareHouse> wareHouses = new HashSet<>();
 
     @ManyToMany(mappedBy = "securityUsers")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -419,28 +419,28 @@ public class SecurityUser implements Serializable {
         return this;
     }
 
-    public Set<WareHouse> getSecurityUsers() {
-        return this.securityUsers;
+    public Set<WareHouse> getWareHouses() {
+        return this.wareHouses;
     }
 
-    public void setSecurityUsers(Set<WareHouse> wareHouses) {
-        this.securityUsers = wareHouses;
+    public void setWareHouses(Set<WareHouse> wareHouses) {
+        this.wareHouses = wareHouses;
     }
 
-    public SecurityUser securityUsers(Set<WareHouse> wareHouses) {
-        this.setSecurityUsers(wareHouses);
+    public SecurityUser wareHouses(Set<WareHouse> wareHouses) {
+        this.setWareHouses(wareHouses);
         return this;
     }
 
-    public SecurityUser addSecurityUser(WareHouse wareHouse) {
-        this.securityUsers.add(wareHouse);
-        wareHouse.getProductInventories().add(this);
+    public SecurityUser addWareHouse(WareHouse wareHouse) {
+        this.wareHouses.add(wareHouse);
+        wareHouse.getSecurityUsers().add(this);
         return this;
     }
 
-    public SecurityUser removeSecurityUser(WareHouse wareHouse) {
-        this.securityUsers.remove(wareHouse);
-        wareHouse.getProductInventories().remove(this);
+    public SecurityUser removeWareHouse(WareHouse wareHouse) {
+        this.wareHouses.remove(wareHouse);
+        wareHouse.getSecurityUsers().remove(this);
         return this;
     }
 

@@ -50,7 +50,7 @@ export class SecurityUserUpdateComponent implements OnInit {
     lastModifiedBy: [],
     securityPermissions: [],
     securityRoles: [],
-    securityUsers: [],
+    wareHouses: [],
   });
 
   constructor(
@@ -178,7 +178,7 @@ export class SecurityUserUpdateComponent implements OnInit {
       lastModifiedBy: securityUser.lastModifiedBy,
       securityPermissions: securityUser.securityPermissions,
       securityRoles: securityUser.securityRoles,
-      securityUsers: securityUser.securityUsers,
+      wareHouses: securityUser.wareHouses,
     });
 
     this.securityPermissionsSharedCollection = this.securityPermissionService.addSecurityPermissionToCollectionIfMissing(
@@ -191,7 +191,7 @@ export class SecurityUserUpdateComponent implements OnInit {
     );
     this.wareHousesSharedCollection = this.wareHouseService.addWareHouseToCollectionIfMissing(
       this.wareHousesSharedCollection,
-      ...(securityUser.securityUsers ?? [])
+      ...(securityUser.wareHouses ?? [])
     );
   }
 
@@ -224,7 +224,7 @@ export class SecurityUserUpdateComponent implements OnInit {
       .pipe(map((res: HttpResponse<IWareHouse[]>) => res.body ?? []))
       .pipe(
         map((wareHouses: IWareHouse[]) =>
-          this.wareHouseService.addWareHouseToCollectionIfMissing(wareHouses, ...(this.editForm.get('securityUsers')!.value ?? []))
+          this.wareHouseService.addWareHouseToCollectionIfMissing(wareHouses, ...(this.editForm.get('wareHouses')!.value ?? []))
         )
       )
       .subscribe((wareHouses: IWareHouse[]) => (this.wareHousesSharedCollection = wareHouses));
@@ -258,7 +258,7 @@ export class SecurityUserUpdateComponent implements OnInit {
       lastModifiedBy: this.editForm.get(['lastModifiedBy'])!.value,
       securityPermissions: this.editForm.get(['securityPermissions'])!.value,
       securityRoles: this.editForm.get(['securityRoles'])!.value,
-      securityUsers: this.editForm.get(['securityUsers'])!.value,
+      wareHouses: this.editForm.get(['wareHouses'])!.value,
     };
   }
 }

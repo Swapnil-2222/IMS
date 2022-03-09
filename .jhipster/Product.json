@@ -128,7 +128,7 @@
       "otherEntityField": "login",
       "otherEntityName": "securityUser",
       "otherEntityRelationshipName": "product",
-      "relationshipName": "ecurityUser",
+      "relationshipName": "securityUser",
       "relationshipType": "many-to-one"
     },
     {

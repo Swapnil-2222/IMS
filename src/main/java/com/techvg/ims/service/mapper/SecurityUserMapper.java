@@ -12,12 +12,12 @@ import org.mapstruct.*;
 public interface SecurityUserMapper extends EntityMapper<SecurityUserDTO, SecurityUser> {
     @Mapping(target = "securityPermissions", source = "securityPermissions", qualifiedByName = "nameSet")
     @Mapping(target = "securityRoles", source = "securityRoles", qualifiedByName = "nameSet")
-    @Mapping(target = "securityUsers", source = "securityUsers", qualifiedByName = "loginSet")
+    @Mapping(target = "wareHouses", source = "wareHouses", qualifiedByName = "whNameSet")
     SecurityUserDTO toDto(SecurityUser s);
 
     @Mapping(target = "removeSecurityPermission", ignore = true)
     @Mapping(target = "removeSecurityRole", ignore = true)
-    @Mapping(target = "removeSecurityUser", ignore = true)
+    @Mapping(target = "removeWareHouse", ignore = true)
     SecurityUser toEntity(SecurityUserDTO securityUserDTO);
 
     @Named("login")

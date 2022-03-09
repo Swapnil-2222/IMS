@@ -26,7 +26,7 @@ public class NotificationDTO implements Serializable {
     @NotNull
     private String lastModifiedBy;
 
-    private SecurityUserDTO ecurityUser;
+    private SecurityUserDTO securityUser;
 
     private WareHouseDTO wareHouse;
 
@@ -78,12 +78,12 @@ public class NotificationDTO implements Serializable {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public SecurityUserDTO getEcurityUser() {
-        return ecurityUser;
+    public SecurityUserDTO getSecurityUser() {
+        return securityUser;
     }
 
-    public void setEcurityUser(SecurityUserDTO ecurityUser) {
-        this.ecurityUser = ecurityUser;
+    public void setSecurityUser(SecurityUserDTO securityUser) {
+        this.securityUser = securityUser;
     }
 
     public WareHouseDTO getWareHouse() {
@@ -125,7 +125,7 @@ public class NotificationDTO implements Serializable {
             ", isActionRequired='" + getIsActionRequired() + "'" +
             ", lastModified='" + getLastModified() + "'" +
             ", lastModifiedBy='" + getLastModifiedBy() + "'" +
-            ", ecurityUser=" + getEcurityUser() +
+            ", securityUser=" + getSecurityUser() +
             ", wareHouse=" + getWareHouse() +
             "}";
     }

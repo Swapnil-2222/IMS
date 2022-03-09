@@ -10,7 +10,7 @@ export interface INotification {
   isActionRequired?: boolean | null;
   lastModified?: dayjs.Dayjs;
   lastModifiedBy?: string;
-  ecurityUser?: ISecurityUser | null;
+  securityUser?: ISecurityUser | null;
   wareHouse?: IWareHouse | null;
 }
 
@@ -22,7 +22,7 @@ export class Notification implements INotification {
     public isActionRequired?: boolean | null,
     public lastModified?: dayjs.Dayjs,
     public lastModifiedBy?: string,
-    public ecurityUser?: ISecurityUser | null,
+    public securityUser?: ISecurityUser | null,
     public wareHouse?: IWareHouse | null
   ) {
     this.isActionRequired = this.isActionRequired ?? false;

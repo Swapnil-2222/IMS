@@ -57,7 +57,7 @@ public class NotificationCriteria implements Serializable, Criteria {
 
     private StringFilter lastModifiedBy;
 
-    private LongFilter ecurityUserId;
+    private LongFilter securityUserId;
 
     private LongFilter wareHouseId;
 
@@ -72,7 +72,7 @@ public class NotificationCriteria implements Serializable, Criteria {
         this.isActionRequired = other.isActionRequired == null ? null : other.isActionRequired.copy();
         this.lastModified = other.lastModified == null ? null : other.lastModified.copy();
         this.lastModifiedBy = other.lastModifiedBy == null ? null : other.lastModifiedBy.copy();
-        this.ecurityUserId = other.ecurityUserId == null ? null : other.ecurityUserId.copy();
+        this.securityUserId = other.securityUserId == null ? null : other.securityUserId.copy();
         this.wareHouseId = other.wareHouseId == null ? null : other.wareHouseId.copy();
         this.distinct = other.distinct;
     }
@@ -172,19 +172,19 @@ public class NotificationCriteria implements Serializable, Criteria {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public LongFilter getEcurityUserId() {
-        return ecurityUserId;
+    public LongFilter getSecurityUserId() {
+        return securityUserId;
     }
 
-    public LongFilter ecurityUserId() {
-        if (ecurityUserId == null) {
-            ecurityUserId = new LongFilter();
+    public LongFilter securityUserId() {
+        if (securityUserId == null) {
+            securityUserId = new LongFilter();
         }
-        return ecurityUserId;
+        return securityUserId;
     }
 
-    public void setEcurityUserId(LongFilter ecurityUserId) {
-        this.ecurityUserId = ecurityUserId;
+    public void setSecurityUserId(LongFilter securityUserId) {
+        this.securityUserId = securityUserId;
     }
 
     public LongFilter getWareHouseId() {
@@ -226,7 +226,7 @@ public class NotificationCriteria implements Serializable, Criteria {
             Objects.equals(isActionRequired, that.isActionRequired) &&
             Objects.equals(lastModified, that.lastModified) &&
             Objects.equals(lastModifiedBy, that.lastModifiedBy) &&
-            Objects.equals(ecurityUserId, that.ecurityUserId) &&
+            Objects.equals(securityUserId, that.securityUserId) &&
             Objects.equals(wareHouseId, that.wareHouseId) &&
             Objects.equals(distinct, that.distinct)
         );
@@ -241,7 +241,7 @@ public class NotificationCriteria implements Serializable, Criteria {
             isActionRequired,
             lastModified,
             lastModifiedBy,
-            ecurityUserId,
+            securityUserId,
             wareHouseId,
             distinct
         );
@@ -257,7 +257,7 @@ public class NotificationCriteria implements Serializable, Criteria {
             (isActionRequired != null ? "isActionRequired=" + isActionRequired + ", " : "") +
             (lastModified != null ? "lastModified=" + lastModified + ", " : "") +
             (lastModifiedBy != null ? "lastModifiedBy=" + lastModifiedBy + ", " : "") +
-            (ecurityUserId != null ? "ecurityUserId=" + ecurityUserId + ", " : "") +
+            (securityUserId != null ? "securityUserId=" + securityUserId + ", " : "") +
             (wareHouseId != null ? "wareHouseId=" + wareHouseId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";

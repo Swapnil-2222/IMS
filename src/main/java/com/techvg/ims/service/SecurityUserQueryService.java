@@ -162,12 +162,12 @@ public class SecurityUserQueryService extends QueryService<SecurityUser> {
                         )
                     );
             }
-            if (criteria.getSecurityUserId() != null) {
+            if (criteria.getWareHouseId() != null) {
                 specification =
                     specification.and(
                         buildSpecification(
-                            criteria.getSecurityUserId(),
-                            root -> root.join(SecurityUser_.securityUsers, JoinType.LEFT).get(WareHouse_.id)
+                            criteria.getWareHouseId(),
+                            root -> root.join(SecurityUser_.wareHouses, JoinType.LEFT).get(WareHouse_.id)
                         )
                     );
             }

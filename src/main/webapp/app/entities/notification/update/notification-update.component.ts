@@ -34,7 +34,7 @@ export class NotificationUpdateComponent implements OnInit {
     isActionRequired: [],
     lastModified: [null, [Validators.required]],
     lastModifiedBy: [null, [Validators.required]],
-    ecurityUser: [],
+    securityUser: [],
     wareHouse: [],
   });
 
@@ -108,13 +108,13 @@ export class NotificationUpdateComponent implements OnInit {
       isActionRequired: notification.isActionRequired,
       lastModified: notification.lastModified ? notification.lastModified.format(DATE_TIME_FORMAT) : null,
       lastModifiedBy: notification.lastModifiedBy,
-      ecurityUser: notification.ecurityUser,
+      securityUser: notification.securityUser,
       wareHouse: notification.wareHouse,
     });
 
     this.securityUsersSharedCollection = this.securityUserService.addSecurityUserToCollectionIfMissing(
       this.securityUsersSharedCollection,
-      notification.ecurityUser
+      notification.securityUser
     );
     this.wareHousesSharedCollection = this.wareHouseService.addWareHouseToCollectionIfMissing(
       this.wareHousesSharedCollection,
@@ -128,7 +128,7 @@ export class NotificationUpdateComponent implements OnInit {
       .pipe(map((res: HttpResponse<ISecurityUser[]>) => res.body ?? []))
       .pipe(
         map((securityUsers: ISecurityUser[]) =>
-          this.securityUserService.addSecurityUserToCollectionIfMissing(securityUsers, this.editForm.get('ecurityUser')!.value)
+          this.securityUserService.addSecurityUserToCollectionIfMissing(securityUsers, this.editForm.get('securityUser')!.value)
         )
       )
       .subscribe((securityUsers: ISecurityUser[]) => (this.securityUsersSharedCollection = securityUsers));
@@ -155,7 +155,7 @@ export class NotificationUpdateComponent implements OnInit {
         ? dayjs(this.editForm.get(['lastModified'])!.value, DATE_TIME_FORMAT)
         : undefined,
       lastModifiedBy: this.editForm.get(['lastModifiedBy'])!.value,
-      ecurityUser: this.editForm.get(['ecurityUser'])!.value,
+      securityUser: this.editForm.get(['securityUser'])!.value,
       wareHouse: this.editForm.get(['wareHouse'])!.value,
     };
   }
