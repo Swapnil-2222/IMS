@@ -1761,28 +1761,28 @@ class SecurityUserResourceIT {
 
     @Test
     @Transactional
-    void getAllSecurityUsersBySecurityUserIsEqualToSomething() throws Exception {
+    void getAllSecurityUsersByWareHouseIsEqualToSomething() throws Exception {
         // Initialize the database
         securityUserRepository.saveAndFlush(securityUser);
-        WareHouse securityUser;
+        WareHouse wareHouse;
         if (TestUtil.findAll(em, WareHouse.class).isEmpty()) {
-            securityUser = WareHouseResourceIT.createEntity(em);
-            em.persist(securityUser);
+            wareHouse = WareHouseResourceIT.createEntity(em);
+            em.persist(wareHouse);
             em.flush();
         } else {
-            securityUser = TestUtil.findAll(em, WareHouse.class).get(0);
+            wareHouse = TestUtil.findAll(em, WareHouse.class).get(0);
         }
-        em.persist(securityUser);
+        em.persist(wareHouse);
         em.flush();
-        securityUser.addSecurityUser(securityUser);
+        securityUser.addWareHouse(wareHouse);
         securityUserRepository.saveAndFlush(securityUser);
-        Long securityUserId = securityUser.getId();
+        Long wareHouseId = wareHouse.getId();
 
-        // Get all the securityUserList where securityUser equals to securityUserId
-        defaultSecurityUserShouldBeFound("securityUserId.equals=" + securityUserId);
+        // Get all the securityUserList where wareHouse equals to wareHouseId
+        defaultSecurityUserShouldBeFound("wareHouseId.equals=" + wareHouseId);
 
-        // Get all the securityUserList where securityUser equals to (securityUserId + 1)
-        defaultSecurityUserShouldNotBeFound("securityUserId.equals=" + (securityUserId + 1));
+        // Get all the securityUserList where wareHouse equals to (wareHouseId + 1)
+        defaultSecurityUserShouldNotBeFound("wareHouseId.equals=" + (wareHouseId + 1));
     }
 
     @Test

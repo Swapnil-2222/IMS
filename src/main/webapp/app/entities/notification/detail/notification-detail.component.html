@@ -34,10 +34,10 @@
         <dd>
           <span>{{ notification.lastModifiedBy }}</span>
         </dd>
-        <dt><span jhiTranslate="imsApp.notification.ecurityUser">Ecurity User</span></dt>
+        <dt><span jhiTranslate="imsApp.notification.securityUser">Security User</span></dt>
         <dd>
-          <div *ngIf="notification.ecurityUser">
-            <a [routerLink]="['/security-user', notification.ecurityUser?.id, 'view']">{{ notification.ecurityUser?.login }}</a>
+          <div *ngIf="notification.securityUser">
+            <a [routerLink]="['/security-user', notification.securityUser?.id, 'view']">{{ notification.securityUser?.login }}</a>
           </div>
         </dd>
         <dt><span jhiTranslate="imsApp.notification.wareHouse">Ware House</span></dt>

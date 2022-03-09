@@ -36,7 +36,7 @@ export class ProductTransactionUpdateComponent implements OnInit {
     description: [],
     lastModified: [],
     lastModifiedBy: [],
-    ecurityUser: [],
+    securityUser: [],
     wareHouse: [],
   });
 
@@ -115,13 +115,13 @@ export class ProductTransactionUpdateComponent implements OnInit {
       description: productTransaction.description,
       lastModified: productTransaction.lastModified ? productTransaction.lastModified.format(DATE_TIME_FORMAT) : null,
       lastModifiedBy: productTransaction.lastModifiedBy,
-      ecurityUser: productTransaction.ecurityUser,
+      securityUser: productTransaction.securityUser,
       wareHouse: productTransaction.wareHouse,
     });
 
     this.securityUsersSharedCollection = this.securityUserService.addSecurityUserToCollectionIfMissing(
       this.securityUsersSharedCollection,
-      productTransaction.ecurityUser
+      productTransaction.securityUser
     );
     this.wareHousesSharedCollection = this.wareHouseService.addWareHouseToCollectionIfMissing(
       this.wareHousesSharedCollection,
@@ -135,7 +135,7 @@ export class ProductTransactionUpdateComponent implements OnInit {
       .pipe(map((res: HttpResponse<ISecurityUser[]>) => res.body ?? []))
       .pipe(
         map((securityUsers: ISecurityUser[]) =>
-          this.securityUserService.addSecurityUserToCollectionIfMissing(securityUsers, this.editForm.get('ecurityUser')!.value)
+          this.securityUserService.addSecurityUserToCollectionIfMissing(securityUsers, this.editForm.get('securityUser')!.value)
         )
       )
       .subscribe((securityUsers: ISecurityUser[]) => (this.securityUsersSharedCollection = securityUsers));
@@ -166,7 +166,7 @@ export class ProductTransactionUpdateComponent implements OnInit {
         ? dayjs(this.editForm.get(['lastModified'])!.value, DATE_TIME_FORMAT)
         : undefined,
       lastModifiedBy: this.editForm.get(['lastModifiedBy'])!.value,
-      ecurityUser: this.editForm.get(['ecurityUser'])!.value,
+      securityUser: this.editForm.get(['securityUser'])!.value,
       wareHouse: this.editForm.get(['wareHouse'])!.value,
     };
   }

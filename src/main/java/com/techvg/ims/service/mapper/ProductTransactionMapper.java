@@ -9,7 +9,7 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = { SecurityUserMapper.class, WareHouseMapper.class })
 public interface ProductTransactionMapper extends EntityMapper<ProductTransactionDTO, ProductTransaction> {
-    @Mapping(target = "ecurityUser", source = "ecurityUser", qualifiedByName = "login")
+    @Mapping(target = "securityUser", source = "securityUser", qualifiedByName = "login")
     @Mapping(target = "wareHouse", source = "wareHouse", qualifiedByName = "whName")
     ProductTransactionDTO toDto(ProductTransaction s);
 

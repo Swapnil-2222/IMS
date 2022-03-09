@@ -69,7 +69,7 @@ public class SecurityUserCriteria implements Serializable, Criteria {
 
     private LongFilter securityRoleId;
 
-    private LongFilter securityUserId;
+    private LongFilter wareHouseId;
 
     private LongFilter productInventoryId;
 
@@ -99,7 +99,7 @@ public class SecurityUserCriteria implements Serializable, Criteria {
         this.lastModifiedBy = other.lastModifiedBy == null ? null : other.lastModifiedBy.copy();
         this.securityPermissionId = other.securityPermissionId == null ? null : other.securityPermissionId.copy();
         this.securityRoleId = other.securityRoleId == null ? null : other.securityRoleId.copy();
-        this.securityUserId = other.securityUserId == null ? null : other.securityUserId.copy();
+        this.wareHouseId = other.wareHouseId == null ? null : other.wareHouseId.copy();
         this.productInventoryId = other.productInventoryId == null ? null : other.productInventoryId.copy();
         this.distinct = other.distinct;
     }
@@ -424,19 +424,19 @@ public class SecurityUserCriteria implements Serializable, Criteria {
         this.securityRoleId = securityRoleId;
     }
 
-    public LongFilter getSecurityUserId() {
-        return securityUserId;
+    public LongFilter getWareHouseId() {
+        return wareHouseId;
     }
 
-    public LongFilter securityUserId() {
-        if (securityUserId == null) {
-            securityUserId = new LongFilter();
+    public LongFilter wareHouseId() {
+        if (wareHouseId == null) {
+            wareHouseId = new LongFilter();
         }
-        return securityUserId;
+        return wareHouseId;
     }
 
-    public void setSecurityUserId(LongFilter securityUserId) {
-        this.securityUserId = securityUserId;
+    public void setWareHouseId(LongFilter wareHouseId) {
+        this.wareHouseId = wareHouseId;
     }
 
     public LongFilter getProductInventoryId() {
@@ -493,7 +493,7 @@ public class SecurityUserCriteria implements Serializable, Criteria {
             Objects.equals(lastModifiedBy, that.lastModifiedBy) &&
             Objects.equals(securityPermissionId, that.securityPermissionId) &&
             Objects.equals(securityRoleId, that.securityRoleId) &&
-            Objects.equals(securityUserId, that.securityUserId) &&
+            Objects.equals(wareHouseId, that.wareHouseId) &&
             Objects.equals(productInventoryId, that.productInventoryId) &&
             Objects.equals(distinct, that.distinct)
         );
@@ -523,7 +523,7 @@ public class SecurityUserCriteria implements Serializable, Criteria {
             lastModifiedBy,
             securityPermissionId,
             securityRoleId,
-            securityUserId,
+            wareHouseId,
             productInventoryId,
             distinct
         );
@@ -554,7 +554,7 @@ public class SecurityUserCriteria implements Serializable, Criteria {
             (lastModifiedBy != null ? "lastModifiedBy=" + lastModifiedBy + ", " : "") +
             (securityPermissionId != null ? "securityPermissionId=" + securityPermissionId + ", " : "") +
             (securityRoleId != null ? "securityRoleId=" + securityRoleId + ", " : "") +
-            (securityUserId != null ? "securityUserId=" + securityUserId + ", " : "") +
+            (wareHouseId != null ? "wareHouseId=" + wareHouseId + ", " : "") +
             (productInventoryId != null ? "productInventoryId=" + productInventoryId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";

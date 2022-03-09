@@ -72,7 +72,7 @@ public class ProductInventory implements Serializable {
     private Set<ConsumptionDetails> consumptionDetails = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "transferDetails", "categories", "unit", "ecurityUser", "purchaseOrderDetails" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "transferDetails", "categories", "unit", "securityUser", "purchaseOrderDetails" }, allowSetters = true)
     private Product product;
 
     @ManyToOne
@@ -80,7 +80,7 @@ public class ProductInventory implements Serializable {
     private PurchaseOrder purchaseOrder;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "ecurityUser", "wareHouse" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "securityUser", "wareHouse" }, allowSetters = true)
     private ProductTransaction productTransaction;
 
     @ManyToMany
@@ -90,7 +90,7 @@ public class ProductInventory implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "ware_house_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "productInventories", "productInventories" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "productInventories", "securityUsers" }, allowSetters = true)
     private Set<WareHouse> wareHouses = new HashSet<>();
 
     @ManyToMany
@@ -100,7 +100,7 @@ public class ProductInventory implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "security_user_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "securityUsers", "productInventories" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "wareHouses", "productInventories" }, allowSetters = true)
     private Set<SecurityUser> securityUsers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

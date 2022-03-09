@@ -147,12 +147,12 @@ public class WareHouseQueryService extends QueryService<WareHouse> {
                         )
                     );
             }
-            if (criteria.getProductInventoryId() != null) {
+            if (criteria.getSecurityUserId() != null) {
                 specification =
                     specification.and(
                         buildSpecification(
-                            criteria.getProductInventoryId(),
-                            root -> root.join(WareHouse_.productInventories, JoinType.LEFT).get(SecurityUser_.id)
+                            criteria.getSecurityUserId(),
+                            root -> root.join(WareHouse_.securityUsers, JoinType.LEFT).get(SecurityUser_.id)
                         )
                     );
             }

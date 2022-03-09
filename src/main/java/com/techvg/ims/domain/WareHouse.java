@@ -76,8 +76,6 @@ public class WareHouse implements Serializable {
     private String lastModifiedBy;
 
     @ManyToMany(mappedBy = "wareHouses")
-    @ManyToMany(mappedBy = "securityUsers")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
         value = { "consumptionDetails", "product", "purchaseOrder", "productTransaction", "wareHouses", "securityUsers" },
@@ -86,11 +84,9 @@ public class WareHouse implements Serializable {
     private Set<ProductInventory> productInventories = new HashSet<>();
 
     @ManyToMany(mappedBy = "wareHouses")
-    @ManyToMany(mappedBy = "securityUsers")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "securityUsers", "productInventories" }, allowSetters = true)
-    private Set<SecurityUser> productInventories = new HashSet<>();
+    @JsonIgnoreProperties(value = { "securityPermissions", "securityRoles", "wareHouses", "productInventories" }, allowSetters = true)
+    private Set<SecurityUser> securityUsers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -346,34 +342,34 @@ public class WareHouse implements Serializable {
         return this;
     }
 
-    public Set<SecurityUser> getProductInventories() {
-        return this.productInventories;
+    public Set<SecurityUser> getSecurityUsers() {
+        return this.securityUsers;
     }
 
-    public void setProductInventories(Set<SecurityUser> securityUsers) {
-        if (this.productInventories != null) {
-            this.productInventories.forEach(i -> i.removeSecurityUser(this));
+    public void setSecurityUsers(Set<SecurityUser> securityUsers) {
+        if (this.securityUsers != null) {
+            this.securityUsers.forEach(i -> i.removeWareHouse(this));
         }
         if (securityUsers != null) {
-            securityUsers.forEach(i -> i.addSecurityUser(this));
+            securityUsers.forEach(i -> i.addWareHouse(this));
         }
-        this.productInventories = securityUsers;
+        this.securityUsers = securityUsers;
     }
 
-    public WareHouse productInventories(Set<SecurityUser> securityUsers) {
-        this.setProductInventories(securityUsers);
+    public WareHouse securityUsers(Set<SecurityUser> securityUsers) {
+        this.setSecurityUsers(securityUsers);
         return this;
     }
 
-    public WareHouse addProductInventory(SecurityUser securityUser) {
-        this.productInventories.add(securityUser);
-        securityUser.getSecurityUsers().add(this);
+    public WareHouse addSecurityUser(SecurityUser securityUser) {
+        this.securityUsers.add(securityUser);
+        securityUser.getWareHouses().add(this);
         return this;
     }
 
-    public WareHouse removeProductInventory(SecurityUser securityUser) {
-        this.productInventories.remove(securityUser);
-        securityUser.getSecurityUsers().remove(this);
+    public WareHouse removeSecurityUser(SecurityUser securityUser) {
+        this.securityUsers.remove(securityUser);
+        securityUser.getWareHouses().remove(this);
         return this;
     }
 

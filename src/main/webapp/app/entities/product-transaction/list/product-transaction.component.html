@@ -60,8 +60,8 @@
           <th scope="col" jhiSortBy="lastModifiedBy">
             <span jhiTranslate="imsApp.productTransaction.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="ecurityUser.login">
-            <span jhiTranslate="imsApp.productTransaction.ecurityUser">Ecurity User</span> <fa-icon icon="sort"></fa-icon>
+          <th scope="col" jhiSortBy="securityUser.login">
+            <span jhiTranslate="imsApp.productTransaction.securityUser">Security User</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="wareHouse.whName">
             <span jhiTranslate="imsApp.productTransaction.wareHouse">Ware House</span> <fa-icon icon="sort"></fa-icon>
@@ -84,9 +84,9 @@
           <td>{{ productTransaction.lastModified | formatMediumDatetime }}</td>
           <td>{{ productTransaction.lastModifiedBy }}</td>
           <td>
-            <div *ngIf="productTransaction.ecurityUser">
-              <a [routerLink]="['/security-user', productTransaction.ecurityUser?.id, 'view']">{{
-                productTransaction.ecurityUser?.login
+            <div *ngIf="productTransaction.securityUser">
+              <a [routerLink]="['/security-user', productTransaction.securityUser?.id, 'view']">{{
+                productTransaction.securityUser?.login
               }}</a>
             </div>
           </td>

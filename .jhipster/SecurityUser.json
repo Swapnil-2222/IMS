@@ -105,11 +105,11 @@
       "relationshipType": "many-to-many"
     },
     {
-      "otherEntityField": "login",
+      "otherEntityField": "whName",
       "otherEntityName": "wareHouse",
-      "otherEntityRelationshipName": "productInventory",
+      "otherEntityRelationshipName": "securityUser",
       "ownerSide": true,
-      "relationshipName": "securityUser",
+      "relationshipName": "wareHouse",
       "relationshipType": "many-to-many"
     },
     {

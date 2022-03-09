@@ -65,7 +65,7 @@ public class ProductDTO implements Serializable {
 
     private UnitDTO unit;
 
-    private SecurityUserDTO ecurityUser;
+    private SecurityUserDTO securityUser;
 
     private PurchaseOrderDetailsDTO purchaseOrderDetails;
 
@@ -285,12 +285,12 @@ public class ProductDTO implements Serializable {
         this.unit = unit;
     }
 
-    public SecurityUserDTO getEcurityUser() {
-        return ecurityUser;
+    public SecurityUserDTO getSecurityUser() {
+        return securityUser;
     }
 
-    public void setEcurityUser(SecurityUserDTO ecurityUser) {
-        this.ecurityUser = ecurityUser;
+    public void setSecurityUser(SecurityUserDTO securityUser) {
+        this.securityUser = securityUser;
     }
 
     public PurchaseOrderDetailsDTO getPurchaseOrderDetails() {
@@ -352,7 +352,7 @@ public class ProductDTO implements Serializable {
             ", freeField2='" + getFreeField2() + "'" +
             ", categories=" + getCategories() +
             ", unit=" + getUnit() +
-            ", ecurityUser=" + getEcurityUser() +
+            ", securityUser=" + getSecurityUser() +
             ", purchaseOrderDetails=" + getPurchaseOrderDetails() +
             "}";
     }

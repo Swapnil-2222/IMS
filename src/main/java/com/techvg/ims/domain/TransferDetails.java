@@ -50,11 +50,11 @@ public class TransferDetails implements Serializable {
     private Boolean isActive;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "productInventories", "productInventories" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "productInventories", "securityUsers" }, allowSetters = true)
     private WareHouse wareHouse;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "transferDetails", "categories", "unit", "ecurityUser", "purchaseOrderDetails" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "transferDetails", "categories", "unit", "securityUser", "purchaseOrderDetails" }, allowSetters = true)
     private Product product;
 
     @ManyToOne

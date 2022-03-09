@@ -8,9 +8,9 @@
     -->
     <changeSet id="20220308130647-2" author="jhipster">
 
-        <addForeignKeyConstraint baseColumnNames="ecurity_user_id"
+        <addForeignKeyConstraint baseColumnNames="security_user_id"
                                  baseTableName="notification"
-                                 constraintName="fk_notification__ecurity_user_id"
+                                 constraintName="fk_notification__security_user_id"
                                  referencedColumnNames="id"
                                  referencedTableName="security_user"/>
 

@@ -244,20 +244,13 @@
         </div>
 
         <div class="row mb-3">
-          <label jhiTranslate="imsApp.securityUser.securityUser" for="field_securityUsers">Security User</label>
-          <select
-            class="form-control"
-            id="field_securityUsers"
-            data-cy="securityUser"
-            multiple
-            name="securityUsers"
-            formControlName="securityUsers"
-          >
+          <label jhiTranslate="imsApp.securityUser.wareHouse" for="field_wareHouses">Ware House</label>
+          <select class="form-control" id="field_wareHouses" data-cy="wareHouse" multiple name="wareHouses" formControlName="wareHouses">
             <option
-              [ngValue]="getSelectedWareHouse(wareHouseOption, editForm.get('securityUsers')!.value)"
+              [ngValue]="getSelectedWareHouse(wareHouseOption, editForm.get('wareHouses')!.value)"
               *ngFor="let wareHouseOption of wareHousesSharedCollection; trackBy: trackWareHouseById"
             >
-              {{ wareHouseOption.login }}
+              {{ wareHouseOption.whName }}
             </option>
           </select>
         </div>

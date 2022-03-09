@@ -35,7 +35,7 @@ export interface IProduct {
   transferDetails?: ITransferDetails[] | null;
   categories?: ICategories | null;
   unit?: IUnit | null;
-  ecurityUser?: ISecurityUser | null;
+  securityUser?: ISecurityUser | null;
   purchaseOrderDetails?: IPurchaseOrderDetails | null;
 }
 
@@ -69,7 +69,7 @@ export class Product implements IProduct {
     public transferDetails?: ITransferDetails[] | null,
     public categories?: ICategories | null,
     public unit?: IUnit | null,
-    public ecurityUser?: ISecurityUser | null,
+    public securityUser?: ISecurityUser | null,
     public purchaseOrderDetails?: IPurchaseOrderDetails | null
   ) {
     this.isDeleted = this.isDeleted ?? false;

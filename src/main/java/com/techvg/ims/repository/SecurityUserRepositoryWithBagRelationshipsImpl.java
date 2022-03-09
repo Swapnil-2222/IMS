@@ -19,7 +19,7 @@ public class SecurityUserRepositoryWithBagRelationshipsImpl implements SecurityU
 
     @Override
     public Optional<SecurityUser> fetchBagRelationships(Optional<SecurityUser> securityUser) {
-        return securityUser.map(this::fetchSecurityPermissions).map(this::fetchSecurityRoles).map(this::fetchSecurityUsers);
+        return securityUser.map(this::fetchSecurityPermissions).map(this::fetchSecurityRoles).map(this::fetchWareHouses);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class SecurityUserRepositoryWithBagRelationshipsImpl implements SecurityU
             .of(securityUsers)
             .map(this::fetchSecurityPermissions)
             .map(this::fetchSecurityRoles)
-            .map(this::fetchSecurityUsers)
+            .map(this::fetchWareHouses)
             .get();
     }
 
@@ -85,10 +85,10 @@ public class SecurityUserRepositoryWithBagRelationshipsImpl implements SecurityU
             .getResultList();
     }
 
-    SecurityUser fetchSecurityUsers(SecurityUser result) {
+    SecurityUser fetchWareHouses(SecurityUser result) {
         return entityManager
             .createQuery(
-                "select securityUser from SecurityUser securityUser left join fetch securityUser.securityUsers where securityUser is :securityUser",
+                "select securityUser from SecurityUser securityUser left join fetch securityUser.wareHouses where securityUser is :securityUser",
                 SecurityUser.class
             )
             .setParameter("securityUser", result)
@@ -96,10 +96,10 @@ public class SecurityUserRepositoryWithBagRelationshipsImpl implements SecurityU
             .getSingleResult();
     }
 
-    List<SecurityUser> fetchSecurityUsers(List<SecurityUser> securityUsers) {
+    List<SecurityUser> fetchWareHouses(List<SecurityUser> securityUsers) {
         return entityManager
             .createQuery(
-                "select distinct securityUser from SecurityUser securityUser left join fetch securityUser.securityUsers where securityUser in :securityUsers",
+                "select distinct securityUser from SecurityUser securityUser left join fetch securityUser.wareHouses where securityUser in :securityUsers",
                 SecurityUser.class
             )
             .setParameter("securityUsers", securityUsers)

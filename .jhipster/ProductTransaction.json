@@ -52,7 +52,7 @@
       "otherEntityField": "login",
       "otherEntityName": "securityUser",
       "otherEntityRelationshipName": "productTransaction",
-      "relationshipName": "ecurityUser",
+      "relationshipName": "securityUser",
       "relationshipType": "many-to-one"
     },
     {

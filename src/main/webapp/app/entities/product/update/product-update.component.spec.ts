@@ -98,12 +98,12 @@ describe('Product Management Update Component', () => {
 
     it('Should call SecurityUser query and add missing value', () => {
       const product: IProduct = { id: 456 };
-      const ecurityUser: ISecurityUser = { id: 45888 };
-      product.ecurityUser = ecurityUser;
+      const securityUser: ISecurityUser = { id: 45888 };
+      product.securityUser = securityUser;
 
       const securityUserCollection: ISecurityUser[] = [{ id: 71384 }];
       jest.spyOn(securityUserService, 'query').mockReturnValue(of(new HttpResponse({ body: securityUserCollection })));
-      const additionalSecurityUsers = [ecurityUser];
+      const additionalSecurityUsers = [securityUser];
       const expectedCollection: ISecurityUser[] = [...additionalSecurityUsers, ...securityUserCollection];
       jest.spyOn(securityUserService, 'addSecurityUserToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -146,8 +146,8 @@ describe('Product Management Update Component', () => {
       product.categories = categories;
       const unit: IUnit = { id: 92857 };
       product.unit = unit;
-      const ecurityUser: ISecurityUser = { id: 56495 };
-      product.ecurityUser = ecurityUser;
+      const securityUser: ISecurityUser = { id: 56495 };
+      product.securityUser = securityUser;
       const purchaseOrderDetails: IPurchaseOrderDetails = { id: 70789 };
       product.purchaseOrderDetails = purchaseOrderDetails;
 
@@ -157,7 +157,7 @@ describe('Product Management Update Component', () => {
       expect(comp.editForm.value).toEqual(expect.objectContaining(product));
       expect(comp.categoriesSharedCollection).toContain(categories);
       expect(comp.unitsSharedCollection).toContain(unit);
-      expect(comp.securityUsersSharedCollection).toContain(ecurityUser);
+      expect(comp.securityUsersSharedCollection).toContain(securityUser);
       expect(comp.purchaseOrderDetailsSharedCollection).toContain(purchaseOrderDetails);
     });
   });

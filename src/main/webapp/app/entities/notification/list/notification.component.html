@@ -48,8 +48,8 @@
           <th scope="col" jhiSortBy="lastModifiedBy">
             <span jhiTranslate="imsApp.notification.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="ecurityUser.login">
-            <span jhiTranslate="imsApp.notification.ecurityUser">Ecurity User</span> <fa-icon icon="sort"></fa-icon>
+          <th scope="col" jhiSortBy="securityUser.login">
+            <span jhiTranslate="imsApp.notification.securityUser">Security User</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="wareHouse.whName">
             <span jhiTranslate="imsApp.notification.wareHouse">Ware House</span> <fa-icon icon="sort"></fa-icon>
@@ -68,8 +68,8 @@
           <td>{{ notification.lastModified | formatMediumDatetime }}</td>
           <td>{{ notification.lastModifiedBy }}</td>
           <td>
-            <div *ngIf="notification.ecurityUser">
-              <a [routerLink]="['/security-user', notification.ecurityUser?.id, 'view']">{{ notification.ecurityUser?.login }}</a>
+            <div *ngIf="notification.securityUser">
+              <a [routerLink]="['/security-user', notification.securityUser?.id, 'view']">{{ notification.securityUser?.login }}</a>
             </div>
           </td>
           <td>

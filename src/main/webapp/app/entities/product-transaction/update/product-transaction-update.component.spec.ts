@@ -52,12 +52,12 @@ describe('ProductTransaction Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call SecurityUser query and add missing value', () => {
       const productTransaction: IProductTransaction = { id: 456 };
-      const ecurityUser: ISecurityUser = { id: 5073 };
-      productTransaction.ecurityUser = ecurityUser;
+      const securityUser: ISecurityUser = { id: 5073 };
+      productTransaction.securityUser = securityUser;
 
       const securityUserCollection: ISecurityUser[] = [{ id: 78260 }];
       jest.spyOn(securityUserService, 'query').mockReturnValue(of(new HttpResponse({ body: securityUserCollection })));
-      const additionalSecurityUsers = [ecurityUser];
+      const additionalSecurityUsers = [securityUser];
       const expectedCollection: ISecurityUser[] = [...additionalSecurityUsers, ...securityUserCollection];
       jest.spyOn(securityUserService, 'addSecurityUserToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -93,8 +93,8 @@ describe('ProductTransaction Management Update Component', () => {
 
     it('Should update editForm', () => {
       const productTransaction: IProductTransaction = { id: 456 };
-      const ecurityUser: ISecurityUser = { id: 99846 };
-      productTransaction.ecurityUser = ecurityUser;
+      const securityUser: ISecurityUser = { id: 99846 };
+      productTransaction.securityUser = securityUser;
       const wareHouse: IWareHouse = { id: 90830 };
       productTransaction.wareHouse = wareHouse;
 
@@ -102,7 +102,7 @@ describe('ProductTransaction Management Update Component', () => {
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(productTransaction));
-      expect(comp.securityUsersSharedCollection).toContain(ecurityUser);
+      expect(comp.securityUsersSharedCollection).toContain(securityUser);
       expect(comp.wareHousesSharedCollection).toContain(wareHouse);
     });
   });

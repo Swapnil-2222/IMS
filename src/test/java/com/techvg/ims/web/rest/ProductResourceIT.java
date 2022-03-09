@@ -2106,28 +2106,28 @@ class ProductResourceIT {
 
     @Test
     @Transactional
-    void getAllProductsByEcurityUserIsEqualToSomething() throws Exception {
+    void getAllProductsBySecurityUserIsEqualToSomething() throws Exception {
         // Initialize the database
         productRepository.saveAndFlush(product);
-        SecurityUser ecurityUser;
+        SecurityUser securityUser;
         if (TestUtil.findAll(em, SecurityUser.class).isEmpty()) {
-            ecurityUser = SecurityUserResourceIT.createEntity(em);
-            em.persist(ecurityUser);
+            securityUser = SecurityUserResourceIT.createEntity(em);
+            em.persist(securityUser);
             em.flush();
         } else {
-            ecurityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
+            securityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
         }
-        em.persist(ecurityUser);
+        em.persist(securityUser);
         em.flush();
-        product.setEcurityUser(ecurityUser);
+        product.setSecurityUser(securityUser);
         productRepository.saveAndFlush(product);
-        Long ecurityUserId = ecurityUser.getId();
+        Long securityUserId = securityUser.getId();
 
-        // Get all the productList where ecurityUser equals to ecurityUserId
-        defaultProductShouldBeFound("ecurityUserId.equals=" + ecurityUserId);
+        // Get all the productList where securityUser equals to securityUserId
+        defaultProductShouldBeFound("securityUserId.equals=" + securityUserId);
 
-        // Get all the productList where ecurityUser equals to (ecurityUserId + 1)
-        defaultProductShouldNotBeFound("ecurityUserId.equals=" + (ecurityUserId + 1));
+        // Get all the productList where securityUser equals to (securityUserId + 1)
+        defaultProductShouldNotBeFound("securityUserId.equals=" + (securityUserId + 1));
     }
 
     @Test

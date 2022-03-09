@@ -10,11 +10,6 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {})
 public interface WareHouseMapper extends EntityMapper<WareHouseDTO, WareHouse> {
-    @Named("idSet")
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id", source = "id")
-    Set<WareHouseDTO> toDtoIdSet(Set<WareHouse> wareHouse);
-
     @Named("whNameSet")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")

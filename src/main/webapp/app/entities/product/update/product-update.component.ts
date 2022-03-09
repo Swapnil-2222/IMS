@@ -64,7 +64,7 @@ export class ProductUpdateComponent implements OnInit {
     freeField2: [],
     categories: [],
     unit: [],
-    ecurityUser: [],
+    securityUser: [],
     purchaseOrderDetails: [],
   });
 
@@ -186,7 +186,7 @@ export class ProductUpdateComponent implements OnInit {
       freeField2: product.freeField2,
       categories: product.categories,
       unit: product.unit,
-      ecurityUser: product.ecurityUser,
+      securityUser: product.securityUser,
       purchaseOrderDetails: product.purchaseOrderDetails,
     });
 
@@ -197,7 +197,7 @@ export class ProductUpdateComponent implements OnInit {
     this.unitsSharedCollection = this.unitService.addUnitToCollectionIfMissing(this.unitsSharedCollection, product.unit);
     this.securityUsersSharedCollection = this.securityUserService.addSecurityUserToCollectionIfMissing(
       this.securityUsersSharedCollection,
-      product.ecurityUser
+      product.securityUser
     );
     this.purchaseOrderDetailsSharedCollection = this.purchaseOrderDetailsService.addPurchaseOrderDetailsToCollectionIfMissing(
       this.purchaseOrderDetailsSharedCollection,
@@ -227,7 +227,7 @@ export class ProductUpdateComponent implements OnInit {
       .pipe(map((res: HttpResponse<ISecurityUser[]>) => res.body ?? []))
       .pipe(
         map((securityUsers: ISecurityUser[]) =>
-          this.securityUserService.addSecurityUserToCollectionIfMissing(securityUsers, this.editForm.get('ecurityUser')!.value)
+          this.securityUserService.addSecurityUserToCollectionIfMissing(securityUsers, this.editForm.get('securityUser')!.value)
         )
       )
       .subscribe((securityUsers: ISecurityUser[]) => (this.securityUsersSharedCollection = securityUsers));
@@ -278,7 +278,7 @@ export class ProductUpdateComponent implements OnInit {
       freeField2: this.editForm.get(['freeField2'])!.value,
       categories: this.editForm.get(['categories'])!.value,
       unit: this.editForm.get(['unit'])!.value,
-      ecurityUser: this.editForm.get(['ecurityUser'])!.value,
+      securityUser: this.editForm.get(['securityUser'])!.value,
       purchaseOrderDetails: this.editForm.get(['purchaseOrderDetails'])!.value,
     };
   }

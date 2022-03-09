@@ -105,12 +105,12 @@ public class NotificationQueryService extends QueryService<Notification> {
             if (criteria.getLastModifiedBy() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getLastModifiedBy(), Notification_.lastModifiedBy));
             }
-            if (criteria.getEcurityUserId() != null) {
+            if (criteria.getSecurityUserId() != null) {
                 specification =
                     specification.and(
                         buildSpecification(
-                            criteria.getEcurityUserId(),
-                            root -> root.join(Notification_.ecurityUser, JoinType.LEFT).get(SecurityUser_.id)
+                            criteria.getSecurityUserId(),
+                            root -> root.join(Notification_.securityUser, JoinType.LEFT).get(SecurityUser_.id)
                         )
                     );
             }

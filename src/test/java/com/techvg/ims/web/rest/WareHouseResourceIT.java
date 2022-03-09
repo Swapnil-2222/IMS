@@ -1580,28 +1580,28 @@ class WareHouseResourceIT {
 
     @Test
     @Transactional
-    void getAllWareHousesByProductInventoryIsEqualToSomething() throws Exception {
+    void getAllWareHousesBySecurityUserIsEqualToSomething() throws Exception {
         // Initialize the database
         wareHouseRepository.saveAndFlush(wareHouse);
-        SecurityUser productInventory;
+        SecurityUser securityUser;
         if (TestUtil.findAll(em, SecurityUser.class).isEmpty()) {
-            productInventory = SecurityUserResourceIT.createEntity(em);
-            em.persist(productInventory);
+            securityUser = SecurityUserResourceIT.createEntity(em);
+            em.persist(securityUser);
             em.flush();
         } else {
-            productInventory = TestUtil.findAll(em, SecurityUser.class).get(0);
+            securityUser = TestUtil.findAll(em, SecurityUser.class).get(0);
         }
-        em.persist(productInventory);
+        em.persist(securityUser);
         em.flush();
-        wareHouse.addProductInventory(productInventory);
+        wareHouse.addSecurityUser(securityUser);
         wareHouseRepository.saveAndFlush(wareHouse);
-        Long productInventoryId = productInventory.getId();
+        Long securityUserId = securityUser.getId();
 
-        // Get all the wareHouseList where productInventory equals to productInventoryId
-        defaultWareHouseShouldBeFound("productInventoryId.equals=" + productInventoryId);
+        // Get all the wareHouseList where securityUser equals to securityUserId
+        defaultWareHouseShouldBeFound("securityUserId.equals=" + securityUserId);
 
-        // Get all the wareHouseList where productInventory equals to (productInventoryId + 1)
-        defaultWareHouseShouldNotBeFound("productInventoryId.equals=" + (productInventoryId + 1));
+        // Get all the wareHouseList where securityUser equals to (securityUserId + 1)
+        defaultWareHouseShouldNotBeFound("securityUserId.equals=" + (securityUserId + 1));
     }
 
     /**
